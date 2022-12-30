@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group 'org.aspectix'
+version '0.1-alpha'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.zeromq:jeromq:0.5.2'
+    implementation 'jakarta.xml.bind:jakarta.xml.bind-api:2.3.2'
+    implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.2'
+    implementation 'com.jcabi:jcabi-ssh:1.6.1'
+    implementation 'org.beryx:text-io:3.4.1'
+    implementation 'org.xerial:sqlite-jdbc:3.34.0'
+    implementation 'org.slf4j:slf4j-simple:1.8.0-beta4'
+    implementation 'jline:jline:2.14.2'
+}
+
+task testcaseCreator(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'org.aspectix.util.cli.TestcaseCreator'
+}
+
+task coordinator(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'org.aspectix.coordination.TestcaseCoordinator'
+    jvmArgs = ['-Djava.util.logging.config.file=logging.properties']
+}

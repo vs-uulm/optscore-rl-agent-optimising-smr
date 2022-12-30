@@ -1,0 +1,3 @@
+[submodule "libs/libuds"]
+	path = libs/libuds
+	url = git@gitlab-vs.informatik.uni-ulm.de:optscore/libuds.git
